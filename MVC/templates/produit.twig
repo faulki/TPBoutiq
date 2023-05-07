@@ -1,0 +1,19 @@
+<form method='POST' action=''>
+	<div style='display: flex; flex-direction: row;'>
+					<div>
+						<img style='max-width: 100%; max-height: 100%;' src='/images/{{ infosArticle.photoProduit }}'/>
+					</div>
+				<div style='display: flex; flex-direction: column; justify-content: space-between; padding-left: 50px;'>
+					<div>
+						<h2>{{ infosArticle.designationProduit }}</h2>
+						<h3>{{ infosArticle.prixProduit }} €</h3>
+					</div>
+					<div>
+						<input type='number' value='1' name='quantite'></input>
+						<a name="quantiteStock">Stock : {{ infosArticle.stockProduit }}</a></br></br>
+						<button type='submit' class="btn btn-primary" name="ajoutPanier">Ajouter au panier</button>
+					</div>
+				</div>
+				</div>
+                 <div>{{ message|raw }}</div>
+			</form>

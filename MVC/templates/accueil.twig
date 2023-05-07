@@ -1,0 +1,40 @@
+<h1>Quelques exemples avec TWIG :</h1>
+
+<h2>Date du jour au format FR :</h2>
+{{ "now"|date("d/m/Y", "Europe/Paris") }}
+
+<h2>Exemple de condition :</h2>
+{% if product.stock > 10 %}
+   <p>Available</p>
+{% elseif product.stock > 0 %}
+   <p>Only {{ product.stock }} left!</p>
+{% else %}
+   <p>Sold-out!</p>
+{% endif %}
+
+<h2>Parcourir un tableau PHP :</h2>
+<ul>
+    {% for user in users %}
+        <li>{{ user }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Déclaration et utilisation d'une variable TWIG (ici un tableua) :</h2>
+{% set tableau = [1, 2] %}
+<ul>
+    {% for element in tableau %}
+        <li>{{ element }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Parcourir un tableau contenant des tableaux associatifs :</h2>
+<code>Array User : [ (0) ["username" = "toto", "id" = "dsg5"] , (1) ["username" = "titi", "id" = "5dil"] , (2) ["username" = "aaaa", "id" = "63cv"] ]</code>
+{% set users = [{'username': 'toto', 'id': 'dsg5'}, {'username': 'titi', 'id': '5dil'}, {'username': 'aaaa', 'id': '63cv'}] %}
+<ul>
+    {% for user in users %}
+        <li>{{ user.username|e }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Inclure un autre fichier TWIG dans la page :</h2>
+{% include 'autrePage.twig' %}
